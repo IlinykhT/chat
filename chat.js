@@ -37,8 +37,9 @@ sendButton.addEventListener('click', function() {
 		mess: messageInput.value
 	};
 
-	nickInput.Value = "";
+	nickInput.value = "";
 	messageInput.value = "";
+	sendButton.disabled = "disabled";
 	
 	chatHistory.push(message);
     localStorage.setItem("chat", JSON.stringify(chatHistory));
@@ -57,8 +58,10 @@ clearButton.addEventListener('click', function() {
 });
 
 
-function check() {
-  var nick = document.getElementById('nickInput'),
-      message = document.getElementById('messageInput');
-  document.getElementById('sendButton').disabled = nick.value && message.value ? false : "disabled";
-}
+nickInput.addEventListener('keyup', function() {
+  document.getElementById('sendButton').disabled = nickInput.value && messageInput.value ? false : "disabled";
+});
+
+messageInput.addEventListener('keyup', function() {
+  document.getElementById('sendButton').disabled = nickInput.value && messageInput.value ? false : "disabled";
+});
