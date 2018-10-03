@@ -7,19 +7,26 @@ var	chatHistory;
 
 if(localStorage.getItem("chat")) {
 	
-	chatHistory = JSON.parse(localStorage.getItem("chat"));
-	var template = "";
-	for (i = 0; i < chatHistory.length; i++) {
-		template += "<div><strong>" + chatHistory[i].nick + ": </strong>" + chatHistory[i].mess+"</div>";	
-	}
-	chatArea.innerHTML = template;
-	
+	displayHistory();	
+
 } else {
 	
 	chatHistory = JSON.stringify([]);
 	localStorage.setItem("chat", chatHistory);
 	
 }
+
+function displayHistory() {
+	chatHistory = JSON.parse(localStorage.getItem("chat"));
+	var template = "";
+	for (i = 0; i < chatHistory.length; i++) {
+		template += "<div><strong>" + chatHistory[i].nick + ": </strong>" + chatHistory[i].mess+"</div>";	
+	}
+	chatArea.innerHTML = template;
+	chatArea.scrollTop=chatArea.scrollHeight;	
+}	
+
+setInterval(displayHistory, 1000);
 
 sendButton.addEventListener('click', function() {
 	
