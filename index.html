@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Чат</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="head">
+			Enjoy with chatting!
+			<button id="clearButton" class="clear-button">Clear history</button>
+		</div>
+		<div class="chatarea" id="chatArea"></div>
+		<div class="sending">
+			<div class="input-block">
+				<label for="nickInput">Nickname</label>
+				<input id="nickInput" type='text' onkeyup=check()> 
+				<br><br>
+				<label for="messageInput">Message</label>
+				<input id="messageInput" type='text' onkeyup=check()> 
+			</div>
+			<div class="input-block">
+				<button id="sendButton" class="send-button" disabled>Send</button>
+			</div>
+		</div>	
+	</div>
+
+	<script src="chat.js"></script>
+	
+</body>
+
+</html>
