@@ -41,9 +41,9 @@ sendButton.addEventListener("click", function() {
 	messageInput.value = "";
 	sendButton.disabled = "disabled";
 	chatHistory.push(message);
-    localStorage.setItem("chat", JSON.stringify(chatHistory));
+	localStorage.setItem("chat", JSON.stringify(chatHistory));
 	var template="<div><strong>" + message.nick + ": </strong>" + message.mess + "</div>";
-    chatArea.innerHTML += template;
+	chatArea.innerHTML += template;
 	chatArea.scrollTop = chatArea.scrollHeight;	
 });
 
